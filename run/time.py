@@ -3,7 +3,7 @@
 import os
 import re
 import signal
-import time
+from . import time
 
 class Until(object):
     '''
@@ -122,13 +122,13 @@ if __name__ == '__main__':
     )
 
     for i, o in tests:
-        print i,
+        print(i, end=' ')
         s = Until.parse_timespec(i)
-        print s,
-        print s == o
+        print(s, end=' ')
+        print(s == o)
 
-    print 'my pid:', os.getpid()
-    print 'allowing for 1s execution time'
+    print('my pid:', os.getpid())
+    print('allowing for 1s execution time')
     Until('1s', 'cpu')
     time.sleep(10)
 
